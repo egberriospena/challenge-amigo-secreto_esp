@@ -9,8 +9,10 @@ let friend;
 
 // Función para formatear la lista de amigos
 function formatFriendsList(friends) {
-    if (friends.length === 0) return "";
-    if (friends.length === 1) return friends[0];
+    if (friends.length === 0) 
+        return "";
+    if (friends.length === 1) 
+        return friends[0];
     
     let lastFriend = friends[friends.length - 1];
     let remainingFriends = friends.slice(0, -1).join(", ");
@@ -41,3 +43,15 @@ function addFriend() {
     }
 }
 
+// Función para sortear un amigo de manera aleatoria
+function drawFriend() {
+    if (friends.length === 0) {
+        alert('No hay amigos en la lista para sortear.');
+        return;
+    }
+    
+    let randomIndex = Math.floor(Math.random() * friends.length);
+    let selectedFriend = friends[randomIndex];
+    
+    document.getElementById('resultado').innerHTML = `El amigo secreto es: ${selectedFriend}`;
+}
